@@ -1,4 +1,4 @@
-package com.example.one_team_coding_challenge
+package com.example.one_team_coding_challenge.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.one_team_coding_challenge.R
 import com.example.one_team_coding_challenge.databinding.FragmentFirstBinding
 
 /**
