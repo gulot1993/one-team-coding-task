@@ -63,5 +63,4 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.retrofit.gson.converter)
-    implementation(libs.picasso)
 }

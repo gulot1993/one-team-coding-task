@@ -17,11 +17,6 @@ class LevelActivityAdapter(
         fun bind(activity: Activity) {
             with(binding) {
                 tvTitle.text = activity.title
-                Picasso
-                    .get()
-                    .load(activity.icon.substring(2))
-                    .error(R.drawable.ic_profile)
-                    .into(ivActivity)
             }
         }
     }
