@@ -16,8 +16,8 @@ data class ActivityDTO(
                  ActivityEntity(
                      title = title,
                      description = description,
-                     lockedIconUrl = lockedIcon.fileDTO.url,
-                     iconUrl = icon.fileDTO.url
+                     lockedIconUrl = lockedIcon.file.url,
+                     iconUrl = icon.file.url
                  )
             }
         }
