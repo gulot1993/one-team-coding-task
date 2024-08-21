@@ -12,7 +12,9 @@ import android.view.MenuItem
 import com.example.one_team_coding_challenge.R
 import com.example.one_team_coding_challenge.base.BaseActivity
 import com.example.one_team_coding_challenge.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

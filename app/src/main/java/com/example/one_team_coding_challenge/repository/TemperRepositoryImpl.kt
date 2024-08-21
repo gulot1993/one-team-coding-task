@@ -1,4 +1,6 @@
 package com.example.one_team_coding_challenge.repository
 
-class TemperRepositoryImpl : TemperRepository {
+import javax.inject.Inject
+
+class TemperRepositoryImpl @Inject constructor(): TemperRepository {
 }
