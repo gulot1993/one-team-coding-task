@@ -1,34 +1,31 @@
 package com.example.one_team_coding_challenge.ui.fragment
 
-import android.content.res.AssetManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.one_team_coding_challenge.model.domain.LevelWithActivities
+import com.example.one_team_coding_challenge.model.domain.Level
 import com.example.one_team_coding_challenge.model.entity.ActivityEntity.Companion.toDomain
 import com.example.one_team_coding_challenge.model.entity.LevelEntity.Companion.toDomain
 import com.example.one_team_coding_challenge.repository.TemperRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(): ViewModel() {
 
-    private val _levelWithActivities = MutableSharedFlow<LevelWithActivities>()
+    private val _levelWithActivities = MutableSharedFlow<List<Level>>()
     val levelWithActivities = _levelWithActivities.asSharedFlow()
     @Inject
     lateinit var temperRepository: TemperRepository
 
     fun saveAndLoadTemperLevels() {
         viewModelScope.launch {
+            clearData()
             temperRepository.saveAndLoadTemperLevels()
             loadTemperLevelsWithActivities()
         }
@@ -38,12 +35,22 @@ class HomeViewModel @Inject constructor(): ViewModel() {
         temperRepository
             .loadLevelWithActivities()
             .onEach {
-                it.map {
+                val levels = it.map {
                     val level = it.level.toDomain(it.activities)
                     val activities = it.activities.map { it.toDomain(isLocked = level.state == "LOCKED") }
-                    _levelWithActivities.emit(LevelWithActivities(level = level, activities = activities))
+                    level.activities = activities
+                    return@map level
                 }
+                _levelWithActivities.emit(levels)
             }
             .launchIn(viewModelScope)
+    }
+
+    private fun clearData() {
+        viewModelScope.launch(Dispatchers.IO) { temperRepository.clearTables() }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
     }
 }

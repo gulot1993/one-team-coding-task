@@ -30,4 +30,5 @@ interface TemperDao {
     @Transaction
     @Query("SELECT * FROM level")
     fun loadLevelWithActivities(): Flow<List<LevelWithActivityEntity>>
+
 }

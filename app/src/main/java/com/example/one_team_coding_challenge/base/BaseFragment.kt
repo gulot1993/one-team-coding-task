@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseFragment<B: ViewDataBinding> : Fragment() {
 
-    var _binding: B? = null
+    var binding: B? = null
 
     abstract fun resId(): Int
 
@@ -19,20 +19,20 @@ abstract class BaseFragment<B: ViewDataBinding> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = DataBindingUtil
+        binding = DataBindingUtil
             .inflate(
                 inflater,
                 resId(),
                 container,
                 false
             )
-        _binding?.lifecycleOwner = viewLifecycleOwner
-        return _binding?.root
+        binding?.lifecycleOwner = viewLifecycleOwner
+        return binding?.root
     }
 
     override fun onDestroyView() {
-        _binding?.unbind()
-        _binding = null
+        binding?.unbind()
+        binding = null
         super.onDestroyView()
     }
 }

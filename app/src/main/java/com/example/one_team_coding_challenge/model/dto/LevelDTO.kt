@@ -6,7 +6,8 @@ data class LevelDTO(
     val state: String,
     val title: String,
     val description: String,
-    val activities: List<ActivityDTO>
+    val activities: List<ActivityDTO>,
+    val level: String,
 ) {
     companion object {
         fun LevelDTO.toEntity(): LevelEntity {
@@ -14,7 +15,8 @@ data class LevelDTO(
                 LevelEntity(
                     title = title,
                     description = description,
-                    state = state
+                    state = state,
+                    level = level
                 )
             }
         }

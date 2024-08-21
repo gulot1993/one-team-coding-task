@@ -8,7 +8,7 @@ data class LevelWithActivityEntity(
     val level: LevelEntity,
     @Relation(
         parentColumn = "levelId",
-        entityColumn = "activityId"
+        entityColumn = "levelId"
     )
     val activities: List<ActivityEntity>
 )

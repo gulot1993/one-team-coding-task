@@ -54,4 +54,5 @@
     <string name="sample_percentage">30%</string>
     <string name="sample_number">0</string>
     <string name="journey">Journey</string>
+    <string name="level">Level %s</string>
 </resources>

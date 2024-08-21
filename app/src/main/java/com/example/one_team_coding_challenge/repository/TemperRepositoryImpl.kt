@@ -42,4 +42,8 @@ class TemperRepositoryImpl @Inject constructor(): TemperRepository {
     override fun loadLevelWithActivities(): Flow<List<LevelWithActivityEntity>> {
         return database.temperDao().loadLevelWithActivities()
     }
+
+    override fun clearTables() {
+        database.clearAllTables()
+    }
 }

@@ -7,4 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface TemperRepository {
     suspend fun saveAndLoadTemperLevels()
     fun loadLevelWithActivities(): Flow<List<LevelWithActivityEntity>>
+    fun clearTables()
 }

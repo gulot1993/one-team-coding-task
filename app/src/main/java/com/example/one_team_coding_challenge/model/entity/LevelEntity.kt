@@ -12,7 +12,8 @@ data class LevelEntity(
     @ColumnInfo("levelId") val id: Long = 0,
     @ColumnInfo("title") val title: String = "",
     @ColumnInfo("description") val description: String = "",
-    @ColumnInfo("state") val state: String
+    @ColumnInfo("state") val state: String = "",
+    @ColumnInfo("level") val level: String = "",
 ) {
     companion object {
         fun LevelEntity.toDomain(activities: List<ActivityEntity>): Level {
@@ -21,7 +22,8 @@ data class LevelEntity(
                     title = title,
                     description = description,
                     activities = activities.map { it.toDomain(state == "LOCKED") },
-                    state = state
+                    state = state,
+                    level = level
                 )
             }
         }
