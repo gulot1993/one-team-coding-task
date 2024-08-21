@@ -9,6 +9,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.one_team_coding_challenge.R
 import com.example.one_team_coding_challenge.base.BaseFragment
 import com.example.one_team_coding_challenge.databinding.FragmentHomeBinding
+import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -24,6 +25,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
+        setupListeners()
+    }
+
+    private fun setupListeners() {
+        val tabLayout = _binding!!.tabLayout
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.setIcon(R.drawable.ic_tab_selected)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                tab?.setIcon(R.drawable.ic_tab_not_selected)
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                tab?.setIcon(R.drawable.ic_tab_selected)
+            }
+
+        })
     }
 
     private fun setupViewModel() {
@@ -32,7 +52,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             repeatOnLifecycle(state = Lifecycle.State.STARTED) {
                 launch {
                     viewModel.levelWithActivities.collectLatest {
-                        Timber.d("collected data: $it")
+
                     }
                 }
             }

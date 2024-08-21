@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.one_team_coding_challenge.ui.activity.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_journe"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="@string/journey"
+        android:icon="@drawable/ic_journey_finished"/>
 </menu>

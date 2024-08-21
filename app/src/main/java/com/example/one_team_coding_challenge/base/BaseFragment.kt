@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseFragment<B: ViewDataBinding> : Fragment() {
 
-    private var _binding: B? = null
+    var _binding: B? = null
 
     abstract fun resId(): Int
 
