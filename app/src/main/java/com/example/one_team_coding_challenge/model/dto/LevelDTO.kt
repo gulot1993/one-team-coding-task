@@ -3,6 +3,7 @@ package com.example.one_team_coding_challenge.model.dto
 import com.example.one_team_coding_challenge.model.entity.LevelEntity
 
 data class LevelDTO(
+    val state: String,
     val title: String,
     val description: String,
     val activities: List<ActivityDTO>
@@ -12,7 +13,8 @@ data class LevelDTO(
             return with(this) {
                 LevelEntity(
                     title = title,
-                    description = description
+                    description = description,
+                    state = state
                 )
             }
         }
