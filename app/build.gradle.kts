@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.org.jetbrains.kotlin.kapt)
+    alias(libs.plugins.dagger.plugin)
 }
 
 android {
@@ -49,4 +51,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+    kapt(libs.dagger.compiler)
+    implementation(libs.roomRuntime)
+    annotationProcessor(libs.roomAnnotationProcessor)
+    kapt(libs.roomAnnotationProcessor)
 }
