@@ -9,12 +9,10 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivActivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:layout_width="100dp"
-            tools:layout_height="100dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_margin="16dp"
-            tools:src="@drawable/ic_journey_finished"
+            app:srcCompat="@drawable/ic_journey_finished"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
