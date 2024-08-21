@@ -58,4 +58,9 @@ dependencies {
     implementation(libs.roomRuntime)
     annotationProcessor(libs.roomAnnotationProcessor)
     kapt(libs.roomAnnotationProcessor)
+    implementation(libs.timber)
+    implementation(libs.gson)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.retrofit.gson.converter)
 }

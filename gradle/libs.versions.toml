@@ -13,6 +13,10 @@ navigationUiKtx = "2.7.7"
 hilt = "2.48.1"
 roomversion = "2.6.1"
 org-jetbrains-kotlin-android = "1.8.0"
+timber = "5.0.1"
+gson = "2.11.0"
+retrofit = "2.11.0"
+okhttp = "4.12.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,6 +33,12 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.r
 dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref="hilt" }
 roomRuntime = { group = "androidx.room", name = "room-runtime", version.ref = "roomversion" }
 roomAnnotationProcessor = { group = "androidx.room", name = "room-compiler", version.ref = "roomversion" }
+timber = { group = "com.jakewharton.timber", name ="timber", version.ref = "timber" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+retrofit-gson-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
